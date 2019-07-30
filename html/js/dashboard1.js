@@ -76,8 +76,35 @@
             new Chartist.Line('#ct-visits', {
                 labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
                 series: [
-           [5, 2, 7, 4, 5, 3, 5, 4, 2, 3, 4, 5]
+           [5, 2, 7, 4, 5, 3, 5, 4, 2, 3, 4, 9]
            , [2, 5, 2, 6, 2, 5, 2, 4, 5, 2, 4, 7]
+         ]
+            }, {
+                top: 0,
+                low: 1,
+                showPoint: true,
+                //fullWidth: true,
+                plugins: [
+           Chartist.plugins.tooltip()
+         ],
+                axisY: {
+                    labelInterpolationFnc: function (value) {
+                        return (value / 1) + '$';
+                    }
+                },
+                showArea: true,
+                resize: true    
+            })
+         ], {
+
+        });
+
+        $('#ct-visits2').sparkline([
+            new Chartist.Bar('#ct-visits2', {
+                labels: ['2015', '2016', '2017', '2018', '2019'],
+                series: [
+           [5, 2, 7, 4, 5]
+           , [2, 5, 2, 6, 2,]
          ]
             }, {
                 top: 0,
