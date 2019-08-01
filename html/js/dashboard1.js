@@ -122,9 +122,38 @@
                 showArea: true,
                 resize: true    
             })
-         ], {
+         ]
+         
+          );
 
-        });
+         $('#ct-despesas').sparkline([
+            new Chartist.Bar('#ct-despesas', {
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                series: [
+           [5, 2, 7, 4, 5, 3, 5, 2, 7, 4, 5, 3]
+           , [2, 5, 2, 6, 2, 7, 2, 5, 2, 6, 2, 7]
+           , [6, 2, 3, 5, 4, 1, 6, 2, 3, 5, 4, 1]
+           , [1, 3, 6, 2, 7, 7, 1, 3, 6, 2, 7, 7]
+         ]
+            }, {
+                top: 0,
+                low: 0,
+                showPoint: true,
+                //fullWidth: true,
+                plugins: [
+           Chartist.plugins.tooltip()
+         ],
+                axisY: {
+                    labelInterpolationFnc: function (value) {
+                        return (value / 1) + '$';
+                    }
+                },
+                showArea: true,
+                resize: true    
+            })
+         ]
+         
+          );
 
          
      }
