@@ -1,5 +1,5 @@
 .menu {
-    background: #fff;
+    background: #E4F7F1;
     padding: 0 40px 120px 40px;
     vertical-align: middle !important;
     opacity: 100%;
@@ -7,4 +7,5 @@
 
 .menu-container {
     vertical-align: middle !important;
+    background: #E4F7F1;
 }
