@@ -19,47 +19,14 @@
       <button class="nav-btn" aria-controls="nav" aria-expanded="false"><i class="nav-icon">Toggle Navigation</i></button>
       <ul class="nav" id="nav" aria-hidden="true">
         <li>
-          <span class="nav-label"><span class="nav-label-back">Spacecraft</span></span>
+          <span class="nav-label"><span class="nav-label-back">MENU</span></span>
           <ol>
-            <li><a href="#">GSLV</a></li>
-            <li><a href="#">Saturn V</a></li>
-            <li><a href="#">Shenzhou</a></li>
-            <li><a href="#">Space Shuttle</a></li>
-            <li><a href="#">Soyuz</a></li>
-          </ol>
-        </li>
-        <li>
-          <span class="nav-label"><span class="nav-label-back">Stations</span></span>
-          <ol>
-            <li><a href="#">ISS</a></li>
-            <li><a href="#">Mir</a></li>
-            <li><a href="#">Skylab</a></li>
-          </ol>
-        </li>
-        <li>
-          <span class="nav-label"><span class="nav-label-back">Satellites</span></span>
-          <ol>
-            <li><a href="#">Gaia</a></li>
-            <li><a href="#">Hubble</a></li>
-            <li><a href="#">Kepler</a></li>
-          </ol>
-        </li>
-        <li>
-          <span class="nav-label"><span class="nav-label-back">Rovers</span></span>
-          <ol>
-            <li><a href="#">Curiosity</a></li>
-            <li><a href="#">Pathfinder</a></li>
-            <li><a href="#">Sojourner</a></li>
-          </ol>
-        </li>
-        <li>
-          <span class="nav-label"><span class="nav-label-back">Probes</span></span>
-          <ol>
-            <li><a href="#">Dawn</a></li>
-            <li><a href="#">Hayabusa</a></li>
-            <li><a href="#">New Horizons</a></li>
-            <li><a href="#">Rosetta</a></li>
-            <li><a href="#">Voyageur 1</a></li>
+            <li><a href="#">Página Inicial</a></li>
+            <li><a href="financeiro.html">Financeiro</a></li>
+            <li><a href="#">Ferramentas</a></li>
+            <li><a href="#">Gerenciamento de Usuários</a></li>
+            <li><a href="#">Gerenciamento de Anúncios</a></li>
+            <li><a href="#">Perfil</a></li>
           </ol>
         </li>
       </ul>
@@ -91,57 +58,75 @@
     </article>
 
     <article class="panel distances">
-      <h2 class="panel-head section-label" tabindex="0"><span class="section-label-back">Índice de Aprovação</span></h2>
-      <div>
-        <svg class="bar-chart" viewBox="0 -90 1000 821.8">
-          <title>Aprovações do aplicativo Sharetools</title>
-          <style>
-            .st0{fill:#6c8fe0;} .st1{fill:#6c8fe0;} .st2{fill:#6c8fe0;} .st3{fill:#6c8fe0;} .st4{fill:#fff;font-family:Ubuntu} .st5{font-size:52.7692px;} .st6{font-size:37.6923px;} .st7{font-size:40.2051px;} .st8{fill:none;stroke:#233e75;stroke-width:5;}
-          </style>
-          <g class="bar-wrap">
-            <path id="bar-voy-1" d="M765.6 422.2h199v30.6h-199z" class="bar st0"/>
-          </g>
-          <g class="bar-wrap">
-            <path id="bar-voy-2" d="M546.7 347.8h199v105h-199z" class="bar st1"/>
-          </g>
-          <g class="bar-wrap">
-            <path id="bar-nh" d="M327.7 94h199v358.7h-199z" class="bar st2"/>
-          </g>
-          <g class="bar-wrap">
-            <path id="bar-cas" d="M108.8 22.5h199v430.2h-199z" class="bar st3"/>
-          </g> 
-          
-          <!--
-          <g class="bar-wrap">
-              <path id="bar-cas" d="M990.8 20.5h199v430.2h-199z" class="bar st4"/>
-            </g>    
--->
-
-          <text transform="matrix(0 -1 1 0 204.475 739.456)">
-            <tspan x="0" y="0" class="st4 st5">Muito Bom</tspan><tspan x="84" y="45.2" class="st4 st6"></tspan>
-          </text>
-          <text transform="matrix(0 -1 1 0 427.26 739.456)">
-            <tspan x="150" y="0" class="st4 st5">Bom</tspan><tspan x="84" y="45.2" class="st4 st6"></tspan>
-          </text>
-          <text transform="matrix(0 -1 1 0 646.202 800.298)">
-            <tspan x="130" y="0" class="st4 st5">Regular</tspan><tspan x="187.4" y="45.2" class="st4 st6"></tspan>
-          </text>
-          <text transform="matrix(0 -1 1 0 865.145 631.651)">
-            <tspan x="40" y="0" class="st4 st5">Ruim</tspan><tspan x="-2.5" y="45.2" class="st4 st6"></tspan>
-          </text>
-
-
-          <text transform="translate(32.675 467.33)" class="st4 st7" aria-hidden="true">0</text>
-          <text transform="translate(10 248.72)" class="st4 st7" aria-hidden="true">15</text>
-          
-          <path d="M83.5 452.8H990" class="st8"/>
-          <path d="M83.5 452.8V22.5" class="st8"/>
-          <path d="M83.5 452.8H65" class="st8"/>
-          <path d="M83.5 234.2H65" class="st8"/>
-          
-        </svg>
-      </div>
-    </article>
+        <h2 class="panel-head section-label" tabindex="0"><span class="section-label-back">Índice de Aprovação</span></h2>
+        <div>
+          <div id="app"></div>
+        
+          <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+          <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+          <script src="https://unpkg.com/prop-types@15.6.2/prop-types.min.js">
+          </script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+        
+          <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
+          <script src="https://unpkg.com/react-apexcharts@1.1.0/dist/react-apexcharts.iife.min.js"></script>
+        
+          <script type="text/babel">
+        
+            class DonutChart extends React.Component {
+              
+              constructor(props) {
+                super(props);
+        
+                this.state = {
+                  options: {
+                    labels: ['Muito Bom', 'Bom', 'Regular', 'Ruim'],
+                    dataLabels: {
+                      enabled: false
+                    },
+                    fill: {
+                      type: 'gradient',
+                    },
+                    legend: {
+                      formatter: function (val, opts) {
+                        return val + " - " + opts.w.globals.series[opts.seriesIndex]
+                      }
+                    },
+                    responsive: [{
+                      breakpoint: 480,
+                      options: {
+                        chart: {
+                          width: 200
+                        },
+                        legend: {
+                          position: 'bottom'
+                        }
+                      }
+                    }]
+                  },
+                  series: [44, 55, 41, 17],
+                }
+              }
+        
+              render() {
+                return (
+                  <div>
+                    <div id="chart">
+                      <ReactApexChart options={this.state.options} series={this.state.series} type="donut" width="380" />
+                    </div>
+                    <div id="html-dist">
+                    </div>
+                  </div>
+                );
+              }
+            }
+        
+            const domContainer = document.querySelector('#app');
+            ReactDOM.render(React.createElement(DonutChart), domContainer);
+        
+          </script>
+        </div>
+      </article>
 
     <article class="panel">
       <h2 class="panel-head section-label" tabindex="0"><span class="section-label-back">Últimos contratos</span></h2>
