@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,614 +5,156 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Sparklines</title>
-  
-  <link href="../../assets/styles.css" rel="stylesheet" />
-
-  <style>
-    .row {
-      overflow: hidden;
-      max-width: 890px;
-      margin: 30px auto;
-      display: flex;
-    }
-
-    .col-md-4 {
-      width: 33.33%;
-      padding: 0 25px;
-    }
-
-    table {
-      width: 100%;
-    }
-
-    tbody tr {
-      border-top: 1px solid #e7e7e7;
-    }
-
-    th {
-      font-weight: bold;
-      font-family: Helvetica;
-      padding-bottom: 20px;
-    }
-    td, th {
-      width: 25%;
-      text-align: center;
-      height: 65px;
-    }
-
-    td div {
-      margin: 0 auto;
-    }
-
-    .left {
-      float: left;
-    }
-
-    .right {
-      float: right;
-    }
-
-    @media only screen and (max-width: 480px) {
-      th:first-child, td:first-child {
-        display: none;
-      }
-      .row {
-        display: block;
-      }
-      .col-md-4 {
-        padding: 0;
-        width: 100%;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="css/style.css" rel="stylesheet">
+  <title>Share Tools - Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
 </head>
 
 <body>
 
-  <div class="row">
-    <div class="col-md-4">
-      <div id="spark1"></div>
-    </div>
-    <div class="col-md-4">
-      <div id="spark2"></div>
-    </div>
-    <div class="col-md-4">
-      <div id="spark3"></div>
-    </div>
-  </div>
-
-  <div class="row">
-    <table>
-      <thead>
-        <th>Total Value</th>
-        <th>Percentage of Portfolio</th>
-        <th>Last 10 days</th>
-        <th>Volume</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>$32,554</td>
-          <td>15%</td>
-          <td>
-            <div id="chart1"></div>
-          </td>
-          <td>
-            <div id="chart5"></div>
-          </td>
-        </tr>
-        <tr>
-          <td>$23,533</td>
-          <td>7%</td>
-          <td>
-            <div id="chart2"></div>
-          </td>
-          <td>
-            <div id="chart6"></div>
-          </td>
-        </tr>
-        <tr>
-          <td>$54,276</td>
-          <td>9%</td>
-          <td>
-            <div id="chart3"></div>
-          </td>
-          <td>
-            <div id="chart7"></div>
-          </td>
-        </tr>
-        <tr>
-          <td>$11,533</td>
-          <td>2%</td>
-          <td>
-            <div id="chart4"></div>
-          </td>
-          <td>
-            <div id="chart8"></div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
-
-  
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
-
-  <script>
-
-    window.Apex = {
-      stroke: {
-        width: 3
-      },
-      markers: {
-        size: 0
-      },
-      tooltip: {
-        fixed: {
-          enabled: true,
-        }
-      }
-    };
+        
+    <!-- NAVBAR -->
+    <nav class="menu">
+        <div class="menu-container">
+            <a href="#" class="brand-logo"> 
+                <img src="img/logo.png" style="width: 150px;  margin-top: 10px; ">
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="logged-in" style="display: none">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+                </li>
+                <li class="logged-in" style="display: none">
+                    <a href="#" class="grey-text" id="logout">Logout</a>
+                </li>
+                <li class="logged-in" style="display: none">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Guide</a>
+                </li>
+                <li class="logged-out" style="display: none">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+                </li>
+                <li class="logged-out" style="display: none">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     
-    var randomizeArray = function (arg) {
-      var array = arg.slice();
-      var currentIndex = array.length,
-        temporaryValue, randomIndex;
+    <!-- SIGNUP MODAL -->
+    <div id="modal-signup" class="modal">
+        <div class="modal-content">
+            <h4>Sign up</h4><br />
+            <form id="signup-form">
+                <div class="input-field">
+                    <input type="text" id="signup-nickname" required />
+                    <label for="signup-nickname">Nickname</label>
+                </div>
+                <div class="input-field">
+                    <input type="email" id="signup-email" required />
+                    <label for="signup-email">Email address</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="signup-password" required />
+                    <label for="signup-password">Choose password</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+            </form>
+        </div>
+    </div>
 
-      while (0 !== currentIndex) {
+    <!-- LOGIN MODAL -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <h4>Login</h4><br />
+            <form id="login-form">
+                <div class="input-field">
+                    <input type="email" id="login-email" required />
+                    <label for="login-email">Email address</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="login-password" required />
+                    <label for="login-password">Your password</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Login</button>
+            </form>
+        </div>
+    </div>
 
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
+    <!-- ACCOUNT MODAL -->
+    <div id="modal-account" class="modal">
+        <div class="modal-content center-align">
+            <h4>Account details</h4><br />
+            <div class="account-details"></div>
+        </div>
+    </div>
 
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-      }
+    <!-- CREATE GUIDE MODAL -->
+    <div id="modal-create" class="modal">
+        <div class="modal-content">
+            <h4>Create Guide</h4><br />
+            <form id="create-form">
+                <div class="input-field">
+                    <input type="text" id="title" required />
+                    <label for="title">Empresa</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="content" class="materialize-textarea" required></textarea>
+                    <label for="content">Assinante</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="plano" class="materialize-textarea" required></textarea>
+                    <label for="plano">Plano</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Create</button>
+            </form>
+        </div>
+    </div>
 
-      return array;
-    }
+    <!-- GUIDE LIST -->
+    <div class="container" style="margin-top: 40px; ">
+        <ul class="collapsible z-depth-0 guides" style="border: none; ">
+            
+        </ul>
+    </div>
 
-    // data for the sparklines that appear below header area
-    var sparklineData = [47, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46];
+    
+        <div class="row">
+                <div class="col-md-4">
+                  <div id="chart1"></div>
+                </div>
+                <div class="col-md-4">
+                  <div id="chart2"></div>
+                </div>
+        </div>
 
-    var spark1 = {
-      chart: {
-        type: 'area',
-        height: 160,
-        sparkline: {
-          enabled: true
-        },
-      },
-      stroke: {
-        curve: 'straight'
-      },
-      fill: {
-        opacity: 0.3,
-      },
-      series: [{
-        data: randomizeArray(sparklineData)
-      }],
-      yaxis: {
-        min: 0
-      },
-      colors: ['#DCE6EC'],
-      title: {
-        text: '$424,652',
-        offsetX: 0,
-        style: {
-          fontSize: '24px',
-          cssClass: 'apexcharts-yaxis-title'
-        }
-      },
-      subtitle: {
-        text: 'Sales',
-        offsetX: 0,
-        style: {
-          fontSize: '14px',
-          cssClass: 'apexcharts-yaxis-title'
-        }
-      }
-    }
+        <div class="row">
+                <div class="col-md-4">
+                  <div id="chart3"></div>
+                </div>
+                <div class="col-md-4">
+                  <div id="chart4"></div>
+                </div>
+        </div>
 
-    var spark2 = {
-      chart: {
-        type: 'area',
-        height: 160,
-        sparkline: {
-          enabled: true
-        },
-      },
-      stroke: {
-        curve: 'straight'
-      },
-      fill: {
-        opacity: 0.3,
-      },
-      series: [{
-        data: randomizeArray(sparklineData)
-      }],
-      yaxis: {
-        min: 0
-      },
-      colors: ['#DCE6EC'],
-      title: {
-        text: '$235,312',
-        offsetX: 0,
-        style: {
-          fontSize: '24px',
-          cssClass: 'apexcharts-yaxis-title'
-        }
-      },
-      subtitle: {
-        text: 'Expenses',
-        offsetX: 0,
-        style: {
-          fontSize: '14px',
-          cssClass: 'apexcharts-yaxis-title'
-        }
-      }
-    }
+        <article>
+            
+        <div id="chart1">
+        </div> 
+        
+        <div id="chart2">            
+        </div>
 
-    var spark3 = {
-      chart: {
-        type: 'area',
-        height: 160,
-        sparkline: {
-          enabled: true
-        },
-      },
-      stroke: {
-        curve: 'straight'
-      },
-      fill: {
-        opacity: 0.3
-      },
-      series: [{
-        data: randomizeArray(sparklineData)
-      }],
-      xaxis: {
-        crosshairs: {
-          width: 1
-        },
-      },
-      yaxis: {
-        min: 0
-      },
-      title: {
-        text: '$135,965',
-        offsetX: 0,
-        style: {
-          fontSize: '24px',
-          cssClass: 'apexcharts-yaxis-title'
-        }
-      },
-      subtitle: {
-        text: 'Profits',
-        offsetX: 0,
-        style: {
-          fontSize: '14px',
-          cssClass: 'apexcharts-yaxis-title'
-        }
-      }
-    }
+        <div id="chart3">            
+        </div>
 
-    var spark1 = new ApexCharts(document.querySelector("#spark1"), spark1);
-    spark1.render();
-    var spark2 = new ApexCharts(document.querySelector("#spark2"), spark2);
-    spark2.render();
-    var spark3 = new ApexCharts(document.querySelector("#spark3"), spark3);
-    spark3.render();
+        <div id="chart4">            
+        </div>
 
-    var options1 = {
-      chart: {
-        type: 'line',
-        width: 100,
-        height: 35,
-        sparkline: {
-          enabled: true
-        }
-      },
-      series: [{
-        data: [25, 66, 41, 89, 63, 25, 44, 12, 36, 9, 54]
-      }],
-      tooltip: {
-        fixed: {
-          enabled: false
-        },
-        x: {
-          show: false
-        },
-        y: {
-          title: {
-            formatter: function (seriesName) {
-              return ''
-            }
-          }
-        },
-        marker: {
-          show: false
-        }
-      }
-    }
+        <div id="chart5">            
+        </div>
 
-    var options2 = {
-      chart: {
-        type: 'line',
-        width: 100,
-        height: 35,
-        sparkline: {
-          enabled: true
-        }
-      },
-      series: [{
-        data: [12, 14, 2, 47, 42, 15, 47, 75, 65, 19, 14]
-      }],
-      tooltip: {
-        fixed: {
-          enabled: false
-        },
-        x: {
-          show: false
-        },
-        y: {
-          title: {
-            formatter: function (seriesName) {
-              return ''
-            }
-          }
-        },
-        marker: {
-          show: false
-        }
-      }
-    }
+    </article>
 
-    var options3 = {
-      chart: {
-        type: 'line',
-        width: 100,
-        height: 35,
-        sparkline: {
-          enabled: true
-        }
-      },
-      series: [{
-        data: [47, 45, 74, 14, 56, 74, 14, 11, 7, 39, 82]
-      }],
-      tooltip: {
-        fixed: {
-          enabled: false
-        },
-        x: {
-          show: false
-        },
-        y: {
-          title: {
-            formatter: function (seriesName) {
-              return ''
-            }
-          }
-        },
-        marker: {
-          show: false
-        }
-      }
-    }
-
-    var options4 = {
-      chart: {
-        type: 'line',
-        width: 100,
-        height: 35,
-        sparkline: {
-          enabled: true
-        }
-      },
-      series: [{
-        data: [15, 75, 47, 65, 14, 2, 41, 54, 4, 27, 15]
-      }],
-      tooltip: {
-        fixed: {
-          enabled: false
-        },
-        x: {
-          show: false
-        },
-        y: {
-          title: {
-            formatter: function (seriesName) {
-              return ''
-            }
-          }
-        },
-        marker: {
-          show: false
-        }
-      }
-    }
-
-    var options5 = {
-      chart: {
-        type: 'bar',
-        width: 100,
-        height: 35,
-        sparkline: {
-          enabled: true
-        }
-      },
-      plotOptions: {
-        bar: {
-          columnWidth: '80%'
-        }
-      },
-      series: [{
-        data: [25, 66, 41, 89, 63, 25, 44, 12, 36, 9, 54]
-      }],
-      labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-      xaxis: {
-        crosshairs: {
-          width: 1
-        },
-      },
-      tooltip: {
-        fixed: {
-          enabled: false
-        },
-        x: {
-          show: false
-        },
-        y: {
-          title: {
-            formatter: function (seriesName) {
-              return ''
-            }
-          }
-        },
-        marker: {
-          show: false
-        }
-      }
-    }
-
-    var options6 = {
-      chart: {
-        type: 'bar',
-        width: 100,
-        height: 35,
-        sparkline: {
-          enabled: true
-        }
-      },
-      plotOptions: {
-        bar: {
-          columnWidth: '80%'
-        }
-      },
-      series: [{
-        data: [12, 14, 2, 47, 42, 15, 47, 75, 65, 19, 14]
-      }],
-      labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-      xaxis: {
-        crosshairs: {
-          width: 1
-        },
-      },
-      tooltip: {
-        fixed: {
-          enabled: false
-        },
-        x: {
-          show: false
-        },
-        y: {
-          title: {
-            formatter: function (seriesName) {
-              return ''
-            }
-          }
-        },
-        marker: {
-          show: false
-        }
-      }
-    }
-
-    var options7 = {
-      chart: {
-        type: 'bar',
-        width: 100,
-        height: 35,
-        sparkline: {
-          enabled: true
-        }
-      },
-      plotOptions: {
-        bar: {
-          columnWidth: '80%'
-        }
-      },
-      series: [{
-        data: [47, 45, 74, 14, 56, 74, 14, 11, 7, 39, 82]
-      }],
-      labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-      xaxis: {
-        crosshairs: {
-          width: 1
-        },
-      },
-      tooltip: {
-        fixed: {
-          enabled: false
-        },
-        x: {
-          show: false
-        },
-        y: {
-          title: {
-            formatter: function (seriesName) {
-              return ''
-            }
-          }
-        },
-        marker: {
-          show: false
-        }
-      }
-    }
-
-    var options8 = {
-      chart: {
-        type: 'bar',
-        width: 100,
-        height: 35,
-        sparkline: {
-          enabled: true
-        }
-      },
-      plotOptions: {
-        bar: {
-          columnWidth: '80%'
-        }
-      },
-      series: [{
-        data: [25, 66, 41, 89, 63, 25, 44, 12, 36, 9, 54]
-      }],
-      labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-      xaxis: {
-        crosshairs: {
-          width: 1
-        },
-      },
-      tooltip: {
-        fixed: {
-          enabled: false
-        },
-        x: {
-          show: false
-        },
-        y: {
-          title: {
-            formatter: function (seriesName) {
-              return ''
-            }
-          }
-        },
-        marker: {
-          show: false
-        }
-      }
-    }
-
-    new ApexCharts(document.querySelector("#chart1"), options1).render();
-    new ApexCharts(document.querySelector("#chart2"), options2).render();
-    new ApexCharts(document.querySelector("#chart3"), options3).render();
-    new ApexCharts(document.querySelector("#chart4"), options4).render();
-    new ApexCharts(document.querySelector("#chart5"), options5).render();
-    new ApexCharts(document.querySelector("#chart6"), options6).render();
-    new ApexCharts(document.querySelector("#chart7"), options7).render();
-    new ApexCharts(document.querySelector("#chart8"), options8).render();
-  </script>
+    <script src="scripts/financeiro.js"></script>
 </body>
-
 </html>
