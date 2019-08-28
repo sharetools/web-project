@@ -2,27 +2,27 @@
   <defs>
     <style>
       .cls-1 {
-        clip-path: url(#clip-logo);
+        clip-path: url(#clip-logo); 
       }
 
       .cls-2 {
-        fill: url(#linear-gradient);
+        fill: url(#linear-gradient); 
       }
 
       .cls-3 {
-        fill: url(#radial-gradient);
+        fill: url(#radial-gradient); 
       }
 
       .cls-4 {
-        fill: url(#radial-gradient-2);
+        fill: url(#radial-gradient-2); 
       }
 
       .cls-5 {
-        fill: url(#radial-gradient-3);
+        fill: url(#radial-gradient-3); 
       }
 
       .cls-6 {
-        fill: #616161;
+        fill: #616161; 
       }
     </style>
     <linearGradient id="linear-gradient" x1="0.406" y1="0.469" x2="0.981" y2="1.102" gradientUnits="objectBoundingBox">
