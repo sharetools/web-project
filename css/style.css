@@ -16,7 +16,7 @@ body {
 
 .row {
     overflow: hidden; 
-    max-width: 90%; 
+    max-width: 95%; 
     margin: 8px auto; 
     display: flex; 
     padding: 1px; 
@@ -24,8 +24,12 @@ body {
 
   .col-md-4 {
     padding: 8px; 
-    width: 50%; 
-    
+    width: 50%;    
+  }
+
+  .col-md-tool {
+    padding: 8px; 
+    width: 50%;    
   }
 
   .col-md-3 {
@@ -33,7 +37,7 @@ body {
     width: 33.3%;     
   }
 
-  #spark1, #spark2, #spark3, #chart, #chart1, #chart2, #chart3, #chart4 {
+  #spark1, #spark2, #spark3, #chart, #chart1, #chart2, #chart3, #chart4, #tool1, #tool2, #tool3 {
     background-color: #DFDCDC; 
   }
 
