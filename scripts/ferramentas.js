@@ -159,9 +159,9 @@ chart.render();
 
       title: {
         text: 'Lucro total por ferramenta',
-        align: 'center',
+        align: 'left',
         style: {
-            fontSize: '17px'
+            fontSize: '16px'
         }
     },
   }

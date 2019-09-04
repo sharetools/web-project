@@ -17,27 +17,41 @@ body {
 .row {
     overflow: hidden; 
     max-width: 95%; 
-    margin: 8px auto; 
+    margin: 5px auto; 
     display: flex; 
-    padding: 1px; 
+    padding: 8px; 
   }
 
-  .col-md-4 {
-    padding: 8px; 
+  .col-md-50, .col-md-tool {
+    padding: 5px; 
     width: 50%;    
   }
 
-  .col-md-tool {
-    padding: 8px; 
-    width: 50%;    
+  .col-md-4-2 {
+    padding: 5px;
+  }
+
+  .col-md-40 {
+    padding: 5px; 
+    width: 40%;    
+  }
+
+  .col-md-25 {
+    padding: 5px; 
+    width: 25%;    
   }
 
   .col-md-3 {
+    padding: 5px; 
+    width: 33.3%;     
+  }
+
+  .col-md-3-3 {
     padding: 8px; 
     width: 33.3%;     
   }
 
-  #spark1, #spark2, #spark3, #chart, #chart1, #chart2, #chart3, #chart4, #tool1, #tool2, #tool3 {
+  #spark1, #spark2, #spark3, #chart, #chart1, #chart2, #chart3, #chart4, #chart5, #tool1, #tool2, #tool3 {
     background-color: #DFDCDC; 
   }
 
