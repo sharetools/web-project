@@ -93,7 +93,7 @@
     yaxis: {
       min: 0
     },
-    colors: ['#E01313'],
+    colors: ['#FF4560'],
     title: {
       text: '$235,312',
       offsetX: 0,
@@ -137,7 +137,7 @@
     yaxis: {
       min: 0
     },
-    colors: ['#00FB0B'],
+    colors: ['#00E396'],
     title: {
       text: '$135,965',
       offsetX: 0,
@@ -264,7 +264,7 @@ var options3 = {
   },
   stroke: {
     curve: 'straight',
-    colors: '#E01313'
+    colors: '#FF4560'
   },
   series: [{
     name: "Reais",
@@ -296,13 +296,16 @@ new ApexCharts(document.querySelector("#chart3"), options3).render();
 
 ; (function() {
   
-
+  var colors4 = ['#FF4560'];
   var options4 = {
     chart: {
         height: 350,
         type: 'bar',
         
     },
+
+    colors: colors4,
+
     plotOptions: {
         bar: {
             horizontal: false,            
@@ -337,11 +340,11 @@ new ApexCharts(document.querySelector("#chart4"), options4).render();
 
   var options5 = {
     chart: {
-        width: 380,
+        
         type: 'pie',
         
     },
-    labels: ['DESPESA 1', 'DESPESA 2', 'DESPESA 3', 'DESPESA 4', 'DESPESA 5'],
+    labels: ['Despesa 1', 'Despesa 2', 'Despesa 3', 'Despesa 4', 'Despesa 5'],
     series: [44, 55, 13, 43, 22],
     responsive: [{
         breakpoint: 480,
@@ -357,8 +360,8 @@ new ApexCharts(document.querySelector("#chart4"), options4).render();
     }],
 
     title: {
-        text: 'Tipos de Despesas',
-        align: 'center',
+        //text: 'Ferramentas',
+        align: 'left',
         style: {
             fontSize: '17px'
         }
