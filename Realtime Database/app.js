@@ -25,7 +25,7 @@
 
   // Sync Mensal Changes
   dbRefMes.on('value', snap => {
-    nomeMes.innerText = JSON.stringify(snap.val());
+    nomeMes.innerText = JSON.stringify(snap.val(),null,3);
   });
 
   // Sync Object Changes
