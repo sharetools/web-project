@@ -1,19 +1,14 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="css/style.css" rel="stylesheet">
-  <title>Share Tools - Dashboard</title>
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Share Tools - Dashboard</title>
 </head>
+<body class="grey lighten-3">
 
-<body>
-
-        
     <!-- NAVBAR -->
     <nav class="menu">
         <div class="menu-container">
@@ -117,42 +112,40 @@
         </ul>
     </div>
 
-        <div class="row">
-            <div class="col-md-3-3">
-                <div id="spark1"></div>
-            </div>
-            <div class="col-md-3-3">
-                <div id="spark2"></div>
-            </div>
-            <div class="col-md-3-3">
-                <div id="spark3"></div>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-50">
-                <div id="chart1"></div>
-            </div>
-            <div class="col-md-4-2">
-                <div id="chart2"></div>
-            </div>
-            <div class="col-md-3">
-                <div id="chart"></div>
-            </div>
-        </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
 
-        <div class="row">
-            <div class="col-md-50">
-                <div id="chart3"></div>
-            </div>
-            <div class="col-md-4-2">
-                <div id="chart4"></div>
-            </div>
-            <div class="col-md-3">
-                <div id="chart5"></div>
-            </div>
-        </div>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#config-web-app -->
 
-    <script src="scripts/financeiro.js"></script>
+    <script>
+    // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDL4jzCgVtwt1qNde1gfrTDKA6WUgjqRmw",
+            authDomain: "dashboard-c1044.firebaseapp.com",
+            databaseURL: "https://dashboard-c1044.firebaseio.com",
+            projectId: "dashboard-c1044",
+            //storageBucket: "dashboard-c1044.appspot.com",
+            //messagingSenderId: "687755223623",
+            appId: "1:687755223623:web:5d8a167b01690ace"
+        }; 
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig); 
+
+        // Make auth and firestore references
+        const auth = firebase.auth(); 
+        const db = firebase.firestore(); 
+
+        // Update firestore settings
+        db.settings({ timestampInSnapshots: true }); 
+    </script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/index.js"></script>
+
 </body>
 </html>
