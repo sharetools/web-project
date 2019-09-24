@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Share Tools - Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="css/style.css" rel="stylesheet">
+  
+  <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-firestore.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
+</head>
+
+<body>
+     
+    <!-- NAVBAR -->
+    <nav class="menu">
+        <div class="menu-container">
+            <a href="#" class="brand-logo"> 
+                <img src="img/logo.png" style="width: 150px; margin-top: 10px;">
+            </a>    
+        </div>
+    </nav>
+
+    <div class="row-table">
+        <div class="col-md-3">
+            <div id="table">
+
+                <div class="container">
+                    <input id="txtEmail" type="email" placeholder="E-mail">
+
+                    <input id="txtPassword" type="password" placeholder="Senha">
+
+                    <button id="btnLogin" class="btn btn-action">
+                        Login
+                    </button>
+
+                    <button id="btnSignUp" class="btn btn-secondary">
+                        Signup
+                    </button>
+
+                    <button id="btnLogout" class="btn btn-action hide">
+                        Logout
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
